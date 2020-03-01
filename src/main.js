@@ -8,6 +8,6 @@ import Root from './root/'
 const appContainer = document.getElementById('app-container')
 ReactDom.render( <Root/>,  appContainer)
 
-import webpackSetupCheck from './setup-check/webpack-setup-check.js'
+// import webpackSetupCheck from './setup-check/webpack-setup-check.js'
 
 

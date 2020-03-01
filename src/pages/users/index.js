@@ -1,6 +1,7 @@
 import React  from 'react'
 import {UsersPageLayout}  from './components/layout/'
 import {UsersNavigation}  from './components/users-navigation/'
+import {UsersCatelogue}  from './containers/users-catelogue/'
 import { Routes }  from './routes'
 
 
@@ -8,7 +9,7 @@ const Page = props => {
   return (
     <>
       <UsersPageLayout
-        UserCatelog={<div>userCat</div>}
+        UsersCatelog={<UsersCatelogue/>}
         Navigation={<UsersNavigation/>}
         Workspace={<Routes/>}
       />

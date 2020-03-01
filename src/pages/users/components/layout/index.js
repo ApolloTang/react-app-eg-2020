@@ -7,7 +7,7 @@ const PageLayout = props =>  {
     <div className={`userpage_layout ${s.moduleStyle}`} >
 
       <div className={`left_pannel ${s.leftPannel}`} >
-        <div className="scroll-content">{props.UserCatelog}</div>
+        <div className="scroll-content">{props.UsersCatelog}</div>
       </div>
 
       <div className={`gut ${s.gut}`} />

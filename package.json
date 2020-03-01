@@ -36,6 +36,7 @@
   "dependencies": {
     "core-js": "2.6.11",
     "express": "^4.17.1",
+    "lodash": "^4.17.15",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-loadable": "^5.5.0",
