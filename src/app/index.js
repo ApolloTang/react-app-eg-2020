@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SimpleNavigation from 'components/core/simple-navigation';
+import SimpleNavigation from 'common/components/core/simple-navigation';
 
 import {
   Routes,
