@@ -1,16 +1,23 @@
-import React from 'react';
-import img from './react.png';
-import s from './style.module.less';
+import React, {Component} from 'react'
+import SimpleNavigation from 'components/core/simple-navigation';
 
+import {
+  Routes,
+  navigationDirective
+} from './routes'
 
+import style from './style.module.less'
 
-import FontTest from 'font-test/';
-const App = () => (
-  <div className={`${s.app}`}>
-    <h1>Hello React</h1>
-    <div className={`${s.imageContainer}`}><img src={img} /></div>
-    <FontTest />
+console.log('routes: ', Routes)
+const App = () =>(
+  <div className={`app ${style['module-style']}`} >
+    <div className="app-navigation-container">
+      <SimpleNavigation navigations={navigationDirective}/>
+    </div>
+    <div className="app-workspace">
+      <Routes />
+    </div>
   </div>
-);
+)
 
-export default App;
+export default App

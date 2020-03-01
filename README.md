@@ -1,4 +1,4 @@
-# Webpack react boilerplate
+# react app
 
 Install:
 ```

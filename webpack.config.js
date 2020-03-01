@@ -5,7 +5,7 @@ const {getIfUtils, removeEmpty} = require('webpack-config-utils');
 
 
 // -- Configuration Setting -- //
-const title = 'react boilerplate';
+const title = 'react app';
 const webpackDevServer_host = '0.0.0.0';
 const webpackDevServer_port = '9090';
 const absPathToSrc = pathResolve(__dirname, 'src');
@@ -33,7 +33,6 @@ const webpackConfig_fn = (env = {}) => {
     context: absPathToSrc,
     entry: {
       main: [
-
         './main.js'
       ]
     },
