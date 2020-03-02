@@ -8,7 +8,8 @@ const reducer = (state = {...initialState}, action) => {
   switch (action.type) {
     case actionNames.usersPage_userView_init: {
       return { ...state }
-      }
+    }
+
     case actionNames.usersPage_userView_fetch_begin: {
       const state_prev = {...state};
       const state_next = {
@@ -17,6 +18,7 @@ const reducer = (state = {...initialState}, action) => {
       };
       return state_next;
     }
+
     case actionNames.usersPage_userView_fetch_success: {
       const state_prev = {...state};
       const state_next = {
@@ -25,6 +27,7 @@ const reducer = (state = {...initialState}, action) => {
       };
       return state_next;
     }
+
     case actionNames.usersPage_userView_fetch_fail : {
       const payload = action.payload;
       const state_prev = {...state};
@@ -34,6 +37,7 @@ const reducer = (state = {...initialState}, action) => {
       };
       return state_next;
     }
+
     default: {
       return state;
     }

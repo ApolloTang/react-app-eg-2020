@@ -11,8 +11,6 @@ import s from './style.module.less';
 
 const Component =(props) => {
   const userId = props.match.params.userId
-  console.log('xxx userId', userId)
-  console.log('xxx props', props)
 
   React.useEffect(()=>{
     props.dispatch_init();

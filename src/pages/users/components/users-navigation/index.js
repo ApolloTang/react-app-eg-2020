@@ -7,7 +7,8 @@ import SimpleNavigation from 'common/components/core/simple-navigation'
 import s from  './style.module.less'
 
 const Component = (props) => {
-  const id_selectedUser = props.match.params.userId
+
+  const id_selectedUser = props.match.params//.userId
 
   let navigationDirective = [
     {to:'/users/new', displayText:'Add User'},
@@ -18,11 +19,12 @@ const Component = (props) => {
   const isCreate = /^\/users\/new\/?$/i.test(url)
   const noUser = /^\/users\/?$/i.test(url)
 
-  if (isCreate || noUser) {
-    navigationDirective = [
-      {to:'/users/new', displayText:'Add User'},
-    ]
-  }
+  // if (isCreate || noUser) {
+  //   navigationDirective = [
+  //     {to:'/users/new', displayText:'Add User'},
+  //   ]
+  // }
+
   return(
     <div className={`function-navigation ${s.moduleStyle}`}>
       <SimpleNavigation navigations={navigationDirective}/>

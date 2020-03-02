@@ -17,8 +17,8 @@ const Root = () => (
         <App/>
       </Router>
     </Provider>
-    <div className={`image-container ${s.imageContainer}`}><img src={img} /></div>
-    <FontTest />
+    {/* <div className={`image-container ${s.imageContainer}`}><img src={img} /></div> */}
+    {/* <FontTest /> */}
   </div>
 );
 
