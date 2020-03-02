@@ -1,24 +1,22 @@
-import _ from 'lodash';
+import _get from 'lodash/get';
 import actions from './actions';
 // import {nameSpace} from '../../config;
 
-const mapStoreToProps = store=>{
-  // const userCatelog = _.get(store, `modules.${nameSpace}.resources.userCatelog`, null);
-  // const isLoading = _.get(store, `modules.${nameSpace}.session.userCatelog.isLoading`, true);
-  const isLoading = true
-  // const ids_userCatelog = _.get(store, `modules.${nameSpace}.session.userCatelog.ids_userCatelog`, void 0);
+const mapStoreToProps = store => {
+  const userCatelogue = _get(store, `resources.userCatelogue`, null);
+  const isLoading = _get(store, `usersPage.userCatelogue.isLoading`, true);
+  const ids_userCatelog = _get(store, `usersPage.userCatelogue.ids_userCatelog`, void 0);
+
   return {
-    // userCatelog,
+    userCatelogue,
     isLoading,
-    // ids_userCatelog
+    ids_userCatelog
   }
 };
 
 const mapDispatchToProps = dispatch => ({
   dispatch_init() { dispatch( actions.init() ) },
-  dispatch_fetchUserCatelog() { dispatch(actions.fetchUserCatelog() ) },
-  // dispatch_someAction() { dispatch( Action_someAction() ); }
+  dispatch_fetchUserCatelog() { dispatch(actions.fetchUserCatelog() ) }
 });
-
 
 export {mapStoreToProps, mapDispatchToProps};
