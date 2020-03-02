@@ -1,7 +1,7 @@
 import store from 'root/store';
 import {createHttp} from 'util/rest';
 import c from '../../common/actions-names';
-import {nameSpace, rootUrl} from '../../config';
+import {rootUrl} from 'root/config';
 
 
 const userCatelog = {
@@ -11,7 +11,7 @@ const userCatelog = {
       .then(
         userCatelog => {
           store.dispatch( {
-            type: c[`${nameSpace}__resources_userCatelog_update`],
+            type: __resources_userCatelog_update`],
             payload: {userCatelog}
           });
           return userCatelog;

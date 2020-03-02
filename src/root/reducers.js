@@ -1,10 +1,10 @@
-import {
-  combineReducers
-} from 'redux'
+import { combineReducers } from 'redux'
 
+
+import { resources } from  'app/resources/reducer'
 
 const rootReducer = combineReducers({
-  foo: (s={})=>s
+  resources
 })
 
 
