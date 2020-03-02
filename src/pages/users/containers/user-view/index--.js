@@ -1,13 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Route, Switch, Link, Redirect, NavLink} from 'react-router-dom';
 
 
 import {mapStoreToProps, mapDispatchToProps} from './selector';
 
 
 import style from './style.less';
-class UserView extends React.Component {
+class Comp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -74,46 +73,22 @@ class UserView extends React.Component {
       )
     }
 
-    const httpError  = _.get(this.props, `httpError`, void 0);
-    const httpError_status  = _.get(this.props, `httpError.status`, void 0);
-
-    if (httpError_status === 404) {
-      return(
-        <div className={`userView ${style['module-style']}`} >
+    const name = _.get(this.props.users, `${this._cache.userId}.name`, void 0);
+    return (
+      <div className={`userView ${style['module-style']}`} >
+        <div>
+          <div>{`id: ${this._cache.userId}`}</div>
+          <div>{`Name: ${name}`}</div>
           <div>
-            <div> This use does not exist, please select another user.  </div>
-            <div> Error: [404] Resourse not found</div>
+            <button onClick={()=>{ this.handle_deleteUser(this._cache.userId) }}>delete this user</button>
           </div>
         </div>
-      );
-    } else if (httpError) {
-      return(
-        <div className={`userView ${style['module-style']}`} >
-          <div>
-            <div>An Error has occured</div>
-            <div>{`Error: ${ JSON.stringify(httpError, null, 4) }`}</div>
-          </div>
-        </div>
-      );
-    }
-
-    if (!httpError) {
-      const name = _.get(this.props.users, `${this._cache.userId}.name`, void 0);
-      return (
-        <div className={`userView ${style['module-style']}`} >
-          <div>
-            <div>{`id: ${this._cache.userId}`}</div>
-            <div>{`Name: ${name}`}</div>
-            <div>
-              <button onClick={()=>{ this.handle_deleteUser(this._cache.userId) }}>delete this user</button>
-            </div>
-          </div>
-        </div>
-      )
-    }
+      </div>
+    )
   }
 
 };
 
-export default connect(mapStoreToProps, mapDispatchToProps)(UserView);
+const Connected = connect(mapStoreToProps, mapDispatchToProps)(withRouter(Comp));
+export {Connected as UserView}
 

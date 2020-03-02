@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import { usersPage_userCatelogue } from './users-catelogue/reducer';
+import { usersPage_users } from './user-view/reducer';
 
 const reducers = combineReducers({
   userCatelogue: usersPage_userCatelogue,
+  users: usersPage_users
 })
 
 
