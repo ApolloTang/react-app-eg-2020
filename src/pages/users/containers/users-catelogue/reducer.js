@@ -1,7 +1,5 @@
-import _ from 'lodash';
-import c from '../../common/actions-names';
-import {nameSpace} from '../../config';
-import {combineReducers} from 'redux';
+import { actionNames } from 'root/action-names'
+
 
 const initialState = {
   isLoading: true,
@@ -9,12 +7,13 @@ const initialState = {
   ids_userCatelog: []
 }
 
-const userCatelog = (state = {...initialState}, action) => {
+const reducer = (state = {...initialState}, action) => {
   switch (action.type) {
-    case c[`${nameSpace}__userCatelog_init`]: {
-      return { ...state, }
+    case actionNames.usersPage_userCatelogue_init: {
+      return { ...state }
     }
-    case c[`${nameSpace}__userCatelog_fetch_begin`]: {
+
+    case actionNames.usersPage_userCatelogue_fetch_begin : {
       const state_prev = state;
       const state_next = {
         ...state_prev,
@@ -22,7 +21,8 @@ const userCatelog = (state = {...initialState}, action) => {
       };
       return state_next;
     }
-    case c[`${nameSpace}__userCatelog_fetch_success`]: {
+
+    case actionNames.usersPage_userCatelogue_fetch_success : {
       const payload = action.payload;
       const ids_userCatelog = payload.ids_userCatelog;
 
@@ -34,7 +34,8 @@ const userCatelog = (state = {...initialState}, action) => {
       };
       return state_next;
     }
-    case c[`${nameSpace}__userCatelog_fetch_fail`] : {
+
+    case actionNames.usersPage_userCatelogue_fetch_fail : {
       const payload = action.payload;
       const state_prev = {...state};
       const state_next = {
@@ -50,4 +51,4 @@ const userCatelog = (state = {...initialState}, action) => {
   }
 }
 
-export default userCatelog;
+export  { reducer as usersPage_userCatelogue };
