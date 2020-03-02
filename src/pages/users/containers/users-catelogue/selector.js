@@ -1,6 +1,5 @@
 import _get from 'lodash/get';
 import actions from './actions';
-// import {nameSpace} from '../../config;
 
 const mapStoreToProps = store => {
   const userCatelogue = _get(store, `resources.userCatelogue`, null);
