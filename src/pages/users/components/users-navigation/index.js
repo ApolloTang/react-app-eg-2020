@@ -7,7 +7,6 @@ import SimpleNavigation from 'common/components/core/simple-navigation'
 import s from  './style.module.less'
 
 const Component = (props) => {
-  console.log('props: ', props)
   const id_selectedUser = props.match.params.userId
 
   let navigationDirective = [

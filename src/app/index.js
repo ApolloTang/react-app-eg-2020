@@ -6,11 +6,10 @@ import {
   navigationDirective
 } from './routes'
 
-import style from './style.module.less'
+import s from './style.module.less'
 
-console.log('routes: ', Routes)
 const App = () =>(
-  <div className={`app ${style['module-style']}`} >
+  <div className={`app ${s.moduleStyle}`} >
     <div className="app-navigation-container">
       <SimpleNavigation navigations={navigationDirective}/>
     </div>
