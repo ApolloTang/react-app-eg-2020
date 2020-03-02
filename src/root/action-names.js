@@ -6,6 +6,6 @@ const actionNames = {
   ...actionNames_usersPage
 }
 
-console.log('xxxx: ', actionNames)
+console.log('actionNames: ', actionNames)
 
 export { actionNames }

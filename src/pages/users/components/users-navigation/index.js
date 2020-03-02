@@ -6,7 +6,7 @@ import SimpleNavigation from 'common/components/core/simple-navigation'
 
 import s from  './style.module.less'
 
-const Component = (props) => {
+const Comp = (props) => {
 
   const id_selectedUser = props.match.params//.userId
 
@@ -32,5 +32,5 @@ const Component = (props) => {
   )
 }
 
-const UsersNavigation = withRouter(Component)
+const UsersNavigation = withRouter(Comp)
 export { UsersNavigation }

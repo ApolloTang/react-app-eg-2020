@@ -9,7 +9,7 @@ import s from './style.module.less';
 
 
 
-const Component =(props) => {
+const Comp =(props) => {
   const userId = props.match.params.userId
 
   React.useEffect(()=>{
@@ -36,6 +36,6 @@ const Component =(props) => {
 
 
 
-const Connected = connect(mapStoreToProps, mapDispatchToProps)(withRouter(Component));
+const Connected = connect(mapStoreToProps, mapDispatchToProps)(withRouter(Comp));
 export {Connected as UserView}
 
