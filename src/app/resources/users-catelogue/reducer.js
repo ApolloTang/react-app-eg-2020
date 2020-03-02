@@ -1,19 +1,17 @@
 import _ from 'lodash';
 import { actionNames } from 'root/action-names'
 
-import { normalized } from 'util/helper.js';
-
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case  actionNames.resources_userCatelogue_update : {
       const payload = action.payload
-      const userCat_prev = state.userCat_prev;
       const userCat_next = {
-        ...state.userCat_prev,
-        ...normalized(payload.userCatelog)
+        ...state,
+        ...payload.usersCatelogue
       }
       return userCat_next;
     }
+
     case actionNames.resources_userCatelog_delete : {
       const payload = action.payload
 
@@ -32,6 +30,7 @@ const reducer = (state = {}, action) => {
       delete users_next[id_deletedUser]
       return users_next;
     }
+
     default: {
       return state;
     }

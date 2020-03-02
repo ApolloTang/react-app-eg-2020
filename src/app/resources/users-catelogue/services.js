@@ -1,30 +1,30 @@
-import store from 'root/store';
-import {createHttp} from 'util/rest';
+import store from 'root/store'
+import { createHttp } from 'util/rest'
 import { actionNames } from 'root/action-names'
 
-import {rootUrl} from 'root/config';
+import { normalized } from 'util/helper.js'
+import { rootUrl } from 'root/config'
 
-
-const userCatelog = {
+const usersCatelogue = {
   getAll() {
     return createHttp
-      .get(`${rootUrl}/userCatelog`)
+      .get(`${rootUrl}/userCatelog`) // Note api spell userCatelog instead of userCatelogue
       .then(
-        userCatelog => {
-
+        usersCatelogue => {
+          const usersCatelogue_norm = normalized(usersCatelogue)
           store.dispatch( {
             type: actionNames.resources_userCatelogue_update,
-            payload: {userCatelog}
-          });
-          return userCatelog;
+            payload: {usersCatelogue: usersCatelogue_norm}
+          })
+
+          return usersCatelogue
         }
-      );
+      )
   }
 }
 
-
 const API = {
-  userCatelog,
-};
+  usersCatelogue,
+}
 
-export  {API}
+export { API }

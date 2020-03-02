@@ -17,7 +17,7 @@ const userCatelog = {
       })
 
       try {
-        const userCatelog = await API.userCatelog.getAll()
+        const userCatelog = await API.usersCatelogue.getAll()
         const ids_userCatelog = userCatelog.map( user=>user._id)
         dispatch({
           type: actionNames.usersPage_userCatelogue_fetch_success,
