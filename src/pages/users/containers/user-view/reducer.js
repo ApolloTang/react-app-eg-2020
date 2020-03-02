@@ -2,7 +2,6 @@ import { actionNames } from 'root/action-names'
 
 const initialState = {
   isLoading: false,
-  httpError: null
 }
 
 const reducer = (state = {...initialState}, action) => {
@@ -14,7 +13,6 @@ const reducer = (state = {...initialState}, action) => {
       const state_prev = {...state};
       const state_next = {
         ...state,
-        httpError: null,
         isLoading: true
       };
       return state_next;
@@ -33,7 +31,6 @@ const reducer = (state = {...initialState}, action) => {
       const state_next = {
         ...state,
         isLoading: false,
-        httpError: payload.httpError
       };
       return state_next;
     }

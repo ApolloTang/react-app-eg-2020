@@ -5,7 +5,7 @@ import { usersPage_users } from './user-view/reducer';
 
 const reducers = combineReducers({
   userCatelogue: usersPage_userCatelogue,
-  users: usersPage_users
+  ui: usersPage_users
 })
 
 
