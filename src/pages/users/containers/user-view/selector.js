@@ -3,7 +3,7 @@ import { actions_UserView } from './actions';
 
 const mapStoreToProps = store=>{
   const users = _.get(store, `resources.users`, {});
-  const isLoading = _.get(store, `usersPage.ui.isLoading`, true);
+  const isLoading = _.get(store, `usersPage.userDetails.isLoading`, true);
 
   return {
     users,
