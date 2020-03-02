@@ -1,6 +1,7 @@
 import store from 'root/store';
 import {createHttp} from 'util/rest';
-import c from '../../common/actions-names';
+import { actionNames } from 'root/action-names'
+
 import {rootUrl} from 'root/config';
 
 
@@ -10,8 +11,9 @@ const userCatelog = {
       .get(`${rootUrl}/userCatelog`)
       .then(
         userCatelog => {
+
           store.dispatch( {
-            type: __resources_userCatelog_update`],
+            type: actionNames.resources_userCatelogue_update,
             payload: {userCatelog}
           });
           return userCatelog;
@@ -21,4 +23,8 @@ const userCatelog = {
 }
 
 
-export default userCatelog;
+const API = {
+  userCatelog,
+};
+
+export  {API}

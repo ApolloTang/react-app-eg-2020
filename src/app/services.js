@@ -26,5 +26,6 @@ const API = {
   userCatelog,
 };
 
-export default API;
+
+export { API };
 

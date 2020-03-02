@@ -15,8 +15,8 @@ const mapStoreToProps = store=>{
 };
 
 const mapDispatchToProps = dispatch => ({
-  dispatch_init() { dispatch(actions.init() ) },
-  // dispatch_fetchUserCatelog() { dispatch(Action.fetchUserCatelog() ) },
+  dispatch_init() { dispatch( actions.init() ) },
+  dispatch_fetchUserCatelog() { dispatch(actions.fetchUserCatelog() ) },
   // dispatch_someAction() { dispatch( Action_someAction() ); }
 });
 

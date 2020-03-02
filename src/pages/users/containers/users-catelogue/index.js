@@ -26,6 +26,7 @@ const Catalog = (props) => {
     console.log('component mounted, will fetch data')
 
     props.dispatch_init();
+    props.dispatch_fetchUserCatelog();
     return () => {
       console.log('Dialogue unmounted, will cancel fetch data')
     }
