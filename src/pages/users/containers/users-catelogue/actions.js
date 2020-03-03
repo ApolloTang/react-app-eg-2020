@@ -11,7 +11,6 @@ const userCatelog = {
 
   fetchUserCatelog() {
     return async (dispatch, getState) =>  {
-
       dispatch({
         type: actionNames.usersPage_userCatelogue_fetch_begin
       })

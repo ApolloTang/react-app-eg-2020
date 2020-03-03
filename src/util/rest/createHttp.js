@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
+
 const get = (url, /* params = {} */ ) => {
   const headers = {
     'Content-Type': 'application/json'
@@ -16,13 +17,13 @@ const get = (url, /* params = {} */ ) => {
     response => {
       if (!response.ok) {
         // https://www.tjvantoll.com/2015/09/13/fetch-and-errors/#comment-2254295840
-        // throw Error(response.statusText);
-        return { httpError: response };
+        throw Error(response.statusText);
       }
       return response.json()
     }
   );
 };
+
 
 const post = (url, payload, /* opts */ ) => {
   const headers = {
@@ -44,6 +45,7 @@ const post = (url, payload, /* opts */ ) => {
   );
 };
 
+
 const put = (url, payload, /* opts */ ) => {
   const headers = {
     'Content-Type': 'application/json'
@@ -64,6 +66,7 @@ const put = (url, payload, /* opts */ ) => {
   );
 };
 
+
 const del = (url) => {
   const headers = {
     'Content-Type': 'application/json'
@@ -80,5 +83,6 @@ const del = (url) => {
     response => response.json()
   );
 };
+
 
 export default { get, post, put, del };

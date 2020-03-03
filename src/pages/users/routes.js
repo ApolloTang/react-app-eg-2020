@@ -9,16 +9,17 @@ import {
 } from 'pages/'
 
 
-import {
-  UserDetails
-} from 'pages/users/containers/user-details/'
+import { UserDetails } from 'pages/users/containers/user-details/'
+
+const UserNew  = () => <div>UserNew </div>
+const UserEdit  = () => <div>UserEdit </div>
 
 const Routes = () => (
   <Switch>
     <Route exact path="/users/" component={()=><div>LandingWorkspace</div>} />
-    <Route exact path="/users/new" component={()=><div>user new</div>} />
+    <Route exact path="/users/new" ><UserNew /></Route>
     <Route exact path="/users/:userId" ><UserDetails /></Route>
-    <Route exact path="/users/:userId/edit" component={()=><div>edit user</div>} />
+    <Route exact path="/users/:userId/edit" ><UserEdit /></Route>
     <Route><PageNoMatch /></Route>
   </Switch>
 );

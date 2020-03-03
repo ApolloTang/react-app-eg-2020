@@ -7,7 +7,7 @@ const actions = {
     return (dispatch, getState) => {
       dispatch({
         type: actionNames.usersPage_userDetails_init,
-      });
+      })
     }
   },
 
@@ -15,29 +15,26 @@ const actions = {
     return (dispatch, getState) => {
       dispatch({
         type: actionNames.usersPage_userDetails_fetch_begin
-      });
+      })
       return API.users.getOne(userId).then(
-        user=>{
-          const worker_apiUserGetOne = function worker_apiUserGetOne(user) {
-            dispatch({
-              type: actionNames.usersPage_userDetails_fetch_success,
-              payload: {user}
-            });
-            return user;
-          }
-          worker_apiUserGetOne(user);
+        user => {
+          dispatch({
+            type: actionNames.usersPage_userDetails_fetch_success,
+            payload: {user}
+          })
+          return user
         },
-        (err)=>{
+        error => {
           dispatch({
             type: actionNames.usersPage_userDetails_fetch_fail,
-            payload: {httpError}
-          });
+            payload: error
+          })
         }
       )
     }
   }
 }
 
-export  { actions as actions_userDetails };
+export  { actions as actions_userDetails }
 
 

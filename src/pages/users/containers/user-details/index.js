@@ -14,7 +14,6 @@ const Comp =(props) => {
 
   React.useEffect(()=>{
     props.dispatch_init();
-    props.dispatch_fetchUser(userId);
     return () => { }
   }, [])
 

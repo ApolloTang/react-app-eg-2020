@@ -1,9 +1,8 @@
-import _get from 'lodash/get';
+import _get from 'lodash/get'
+import store from 'root/store'
 
-import store from 'root/store';
-import {createHttp} from 'util/rest';
+import { createHttp } from 'util/rest'
 import { actionNames } from 'root/action-names'
-
 import { normalized } from 'util/helper.js'
 import { rootUrl } from 'root/config'
 
@@ -19,32 +18,28 @@ const users = {
         .get(`${rootUrl}/users/${userId}`)
         .then(
           user => {
-            const users_norm = normalized([user])
-
             store.dispatch( {
               type: actionNames.resources_users_update,
-              payload: {user: users_norm}
-            });
-            return user;
+              payload: {user: normalized([user])}
+            })
+            return user
           }
-        );
+        )
     } else {
-      return new Promise(rs=>{
-        const user = _get(appState, 'resources.users.${userId}', {})
+      return new Promise(resolve => {
+        const user = _get(appState, `resources.users.${userId}`, {})
         store.dispatch( {
           type: actionNames.resources_users_update,
-          payload: {user}
-        });
-        rs(user)
+          payload: {user: normalized([user])}
+        })
+        resolve(user)
       })
     }
-
   }
-
 }
 
 const API = {
-  users,
+  users
 }
 
 export { API }

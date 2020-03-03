@@ -5,7 +5,6 @@ import s from  './style.module.less'
 
 const UsersWorkspaceControl =
   ({currentUserId}) => {
-    console.log('yyy: ', currentUserId)
     let navigationDirective = []
 
     if (currentUserId ==='new' || currentUserId === null) {
