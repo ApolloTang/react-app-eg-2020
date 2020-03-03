@@ -1,17 +1,17 @@
-import { PROD } from  './config';
+import { PROD } from  './config'
 
 import {
   createStore,
   applyMiddleware,
   compose
-} from 'redux';
+} from 'redux'
 
-import { rootReducer } from './reducers';
-import { middleware } from  './middleware';
+import { rootReducer } from './reducers'
+import { middleware } from  './middleware'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-let store;
+let store
 
 // Production
 if (PROD) {
@@ -31,6 +31,6 @@ if (!PROD) {
   )
 }
 
-export default store;
+export default store
 
 

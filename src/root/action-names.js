@@ -1,5 +1,5 @@
-import { actionNames_resources } from 'app/resources/action-names';
-import { actionNames_usersPage } from 'pages/users/containers/action-names';
+import { actionNames_resources } from 'app/resources/action-names'
+import { actionNames_usersPage } from 'pages/users/containers/action-names'
 
 const actionNames = {
   ...actionNames_resources,
