@@ -2,6 +2,9 @@ const pathResolve = require('path').resolve;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const {getIfUtils, removeEmpty} = require('webpack-config-utils');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const chalk = require('chalk');
+
 
 
 // -- Configuration Setting -- //
@@ -95,6 +98,10 @@ const webpackConfig_fn = (env = {}) => {
       ])
     },
     plugins: removeEmpty([
+new ProgressBarPlugin({
+  format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+  clear: false
+}),
       new HtmlWebpackPlugin({
         template: 'index.html',
         title: title,
