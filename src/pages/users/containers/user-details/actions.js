@@ -6,7 +6,7 @@ const actions = {
   init() {
     return (dispatch, getState) => {
       dispatch({
-        type: actionNames.usersPage_userView_init,
+        type: actionNames.usersPage_userDetails_init,
       });
     }
   },
@@ -14,13 +14,13 @@ const actions = {
   fetchUser(userId) {
     return (dispatch, getState) => {
       dispatch({
-        type: actionNames.usersPage_userView_fetch_begin
+        type: actionNames.usersPage_userDetails_fetch_begin
       });
       return API.users.getOne(userId).then(
         user=>{
           const worker_apiUserGetOne = function worker_apiUserGetOne(user) {
             dispatch({
-              type: actionNames.usersPage_userView_fetch_success,
+              type: actionNames.usersPage_userDetails_fetch_success,
               payload: {user}
             });
             return user;
@@ -29,7 +29,7 @@ const actions = {
         },
         (err)=>{
           dispatch({
-            type: actionNames.usersPage_userView_fetch_fail,
+            type: actionNames.usersPage_userDetails_fetch_fail,
             payload: {httpError}
           });
         }
@@ -38,6 +38,6 @@ const actions = {
   }
 }
 
-export  { actions as actions_UserView };
+export  { actions as actions_userDetails };
 
 

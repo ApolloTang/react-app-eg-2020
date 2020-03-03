@@ -1,21 +1,23 @@
 import React  from 'react'
-import {UsersPageLayout}  from './components/layout/'
-import {UsersNavigation}  from './components/users-navigation/'
-import {UsersCatelogue}  from './containers/users-catelogue/'
+import { withRouter, useRouteMatch } from 'react-router-dom'
+
+import { UsersPageLayout }  from './components/layout/'
+import { UsersWorkspaceControl }  from './containers/users-workspace-control/'
+import { UsersCatelogue }  from './containers/users-catelogue/'
 import { Routes }  from './routes'
 
+const Page = withRouter((props) => {
+  const routeMatch = useRouteMatch("/users/:userId")
+  const currentUserId = routeMatch && routeMatch.params.userId
 
-const Page = props => {
   return (
-    <>
-      <UsersPageLayout
-        UsersCatelog={<UsersCatelogue/>}
-        Navigation={<UsersNavigation/>}
-        Workspace={<Routes/>}
-      />
-    </>
+    <UsersPageLayout
+      UsersCatelog={UsersCatelogue}
+      WorkspaceControl={<UsersWorkspaceControl currentUserId={currentUserId} />}
+      Workspace={Routes}
+    />
   )
-}
+})
 
 export { Page as Users }
 

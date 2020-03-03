@@ -37,5 +37,5 @@ const Comp =(props) => {
 
 
 const Connected = connect(mapStoreToProps, mapDispatchToProps)(withRouter(Comp));
-export {Connected as UserView}
+export {Connected as UserDetails}
 

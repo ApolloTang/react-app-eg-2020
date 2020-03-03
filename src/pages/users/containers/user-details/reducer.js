@@ -6,11 +6,11 @@ const initialState = {
 
 const reducer = (state = {...initialState}, action) => {
   switch (action.type) {
-    case actionNames.usersPage_userView_init: {
+    case actionNames.usersPage_userDetails_init: {
       return { ...state }
     }
 
-    case actionNames.usersPage_userView_fetch_begin: {
+    case actionNames.usersPage_userDetails_fetch_begin: {
       const state_prev = {...state};
       const state_next = {
         ...state,
@@ -19,7 +19,7 @@ const reducer = (state = {...initialState}, action) => {
       return state_next;
     }
 
-    case actionNames.usersPage_userView_fetch_success: {
+    case actionNames.usersPage_userDetails_fetch_success: {
       const state_prev = {...state};
       const state_next = {
         ...state,
@@ -28,7 +28,7 @@ const reducer = (state = {...initialState}, action) => {
       return state_next;
     }
 
-    case actionNames.usersPage_userView_fetch_fail : {
+    case actionNames.usersPage_userDetails_fetch_fail : {
       const payload = action.payload;
       const state_prev = {...state};
       const state_next = {
@@ -44,5 +44,5 @@ const reducer = (state = {...initialState}, action) => {
   }
 }
 
-export  { reducer as usersPage_users };
+export  { reducer as usersPage_userDetails };
 export {initialState};

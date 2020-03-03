@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { actions_UserView } from './actions';
+import { actions_userDetails } from './actions';
 
 const mapStoreToProps = store=>{
   const users = _.get(store, `resources.users`, {});
@@ -12,8 +12,8 @@ const mapStoreToProps = store=>{
 };
 
 const mapDispatchToProps = dispatch => ({
-  dispatch_init() { dispatch( actions_UserView.init() ) },
-  dispatch_fetchUser(userId) { dispatch( actions_UserView.fetchUser(userId) ) },
+  dispatch_init() { dispatch( actions_userDetails.init() ) },
+  dispatch_fetchUser(userId) { dispatch( actions_userDetails.fetchUser(userId) ) },
 });
 
 
