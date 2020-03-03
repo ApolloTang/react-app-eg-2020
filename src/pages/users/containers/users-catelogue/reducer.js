@@ -3,7 +3,6 @@ import { actionNames } from 'root/action-names'
 
 const initialState = {
   isLoading: true,
-  httpError: null,
   ids_userCatelog: []
 }
 
@@ -41,7 +40,6 @@ const reducer = (state = {...initialState}, action) => {
       const state_next = {
         ...state,
         isLoading: false,
-        httpError: payload.error
       };
       return state_next;
     }
