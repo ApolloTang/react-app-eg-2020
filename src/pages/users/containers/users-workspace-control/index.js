@@ -5,13 +5,14 @@ import s from  './style.module.less'
 
 const UsersWorkspaceControl =
   ({currentUserId}) => {
+    console.log('yyy: ', currentUserId)
     let navigationDirective = []
 
-    if (currentUserId ==='new') {
+    if (currentUserId ==='new' || currentUserId === null) {
       navigationDirective = [
         {to:'/users/new', displayText:'Add User'},
       ]
-    } else if (!currentUserId) {
+    } else if (currentUserId) {
      navigationDirective = [
       {to:'/users/new', displayText:'Add User'},
       {to:`/users/${currentUserId}/edit`, displayText:'Edit User'},
