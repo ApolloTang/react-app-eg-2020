@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import _ from 'lodash'
 import { actionNames } from 'root/action-names'
 
-import {array_to_IndexirizedObj} from 'util/helper.js';
+import {array_to_IndexirizedObj} from 'util/helper.js'
 
 
 const reducer = (state = {}, action) => {
@@ -12,14 +12,14 @@ const reducer = (state = {}, action) => {
       const state_next = {
         ...state,
         ...user
-      };
-      return state_next;
+      }
+      return state_next
     }
     default: {
-      return state;
+      return state
     }
   }
 }
 
 
-export { reducer as resouces_users };
+export { reducer as resouces_users }

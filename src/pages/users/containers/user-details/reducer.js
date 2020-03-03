@@ -11,38 +11,38 @@ const reducer = (state = {...initialState}, action) => {
     }
 
     case actionNames.usersPage_userDetails_fetch_begin: {
-      const state_prev = {...state};
+      const state_prev = {...state}
       const state_next = {
         ...state,
         isLoading: true
-      };
-      return state_next;
+      }
+      return state_next
     }
 
     case actionNames.usersPage_userDetails_fetch_success: {
-      const state_prev = {...state};
+      const state_prev = {...state}
       const state_next = {
         ...state,
         isLoading: false
-      };
-      return state_next;
+      }
+      return state_next
     }
 
     case actionNames.usersPage_userDetails_fetch_fail : {
-      const payload = action.payload;
-      const state_prev = {...state};
+      const payload = action.payload
+      const state_prev = {...state}
       const state_next = {
         ...state,
         isLoading: false,
-      };
-      return state_next;
+      }
+      return state_next
     }
 
     default: {
-      return state;
+      return state
     }
   }
 }
 
-export  { reducer as usersPage_userDetails };
-export {initialState};
+export  { reducer as usersPage_userDetails }
+export {initialState}
