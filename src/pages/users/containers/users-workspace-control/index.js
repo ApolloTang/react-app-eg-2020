@@ -1,13 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { withRouter, useRouteMatch } from 'react-router-dom'
-
-
 import SimpleNavigation from 'common/components/core/simple-navigation'
 
 import s from  './style.module.less'
 
-const UsersWorkspaceControl_unconnected =
+const UsersWorkspaceControl =
   ({currentUserId}) => {
     let navigationDirective = []
 
@@ -28,5 +24,4 @@ const UsersWorkspaceControl_unconnected =
     )
   }
 
-const UsersWorkspaceControl = UsersWorkspaceControl_unconnected
 export { UsersWorkspaceControl }

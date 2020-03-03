@@ -12,9 +12,9 @@ const Page = withRouter((props) => {
 
   return (
     <UsersPageLayout
-      UsersCatelog={UsersCatelogue}
+      UsersCatelog={<UsersCatelogue />}
       WorkspaceControl={<UsersWorkspaceControl currentUserId={currentUserId} />}
-      Workspace={Routes}
+      Workspace={<Routes />}
     />
   )
 })

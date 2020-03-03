@@ -12,7 +12,7 @@ const PageLayout = ({
 
       <div className={`left_pannel ${s.leftPannel}`} >
         <div className="scroll-content">
-          <UsersCatelog />
+          {UsersCatelog}
         </div>
       </div>
 
@@ -30,7 +30,7 @@ const PageLayout = ({
 
           <div className={`body ${s.body}`} >
             <div className={`body_content ${s.bodyContent}`} >
-              <Workspace />
+              {Workspace}
             </div>
           </div>
 
