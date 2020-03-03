@@ -8,8 +8,6 @@ import { Provider } from 'react-redux';
 import img from 'common/images/react.png'
 import s from './style.module.less'
 
-import FontTest from 'setup-check/font-test/';
-
 const Root = () => (
   <div className={`root ${s.root}`}>
     <Provider store={store}>
@@ -17,9 +15,7 @@ const Root = () => (
         <App/>
       </Router>
     </Provider>
-    {/* <div className={`image-container ${s.imageContainer}`}><img src={img} /></div> */}
-    {/* <FontTest /> */}
   </div>
 );
 
-export default Root
+export { Root }
