@@ -11,27 +11,27 @@ const actions = {
     }
   },
 
-  fetchUser(userId) {
-    return (dispatch, getState) => {
+  fetchUser: (userId) => async (dispatch, getState) => {
+    dispatch({
+      type: actionNames.usersPage_userDetails_fetch_begin
+    })
+
+    let user
+
+    try {
+      user = await dispatch( API.users.getOne(userId) )
       dispatch({
-        type: actionNames.usersPage_userDetails_fetch_begin
+        type: actionNames.usersPage_userDetails_fetch_success,
+        payload: {user}
       })
-      return dispatch(API.users.getOne(userId)).then(
-        user => {
-          dispatch({
-            type: actionNames.usersPage_userDetails_fetch_success,
-            payload: {user}
-          })
-          return user
-        },
-        error => {
-          dispatch({
-            type: actionNames.usersPage_userDetails_fetch_fail,
-            payload: error
-          })
-        }
-      )
+    } catch (error) {
+      dispatch({
+        type: actionNames.usersPage_userDetails_fetch_fail,
+        payload: error
+      })
     }
+
+    return user
   }
 }
 
