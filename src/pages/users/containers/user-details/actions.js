@@ -16,7 +16,7 @@ const actions = {
       dispatch({
         type: actionNames.usersPage_userDetails_fetch_begin
       })
-      return API.users.getOne(userId).then(
+      return dispatch(API.users.getOne(userId)).then(
         user => {
           dispatch({
             type: actionNames.usersPage_userDetails_fetch_success,
