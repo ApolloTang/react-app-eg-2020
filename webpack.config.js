@@ -41,6 +41,7 @@ const webpackConfig_fn = (env = {}) => {
     },
     output: ifProduction(
       {
+        publicPath: '/',
         filename: '[name]-[chunkhash].js',
         path: absPathToDist
       },
