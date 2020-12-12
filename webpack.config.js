@@ -61,41 +61,19 @@ const webpackConfig_fn = (env = {}) => {
         },
         {
           test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$/,
-          loader: 'file-loader?name=./imgs/[name].[hash].[ext]',
+          loader: 'file-loader',
+          options: {
+            name: './imgs/[name].[hash].[ext]'
+          },
           exclude: absPathToFont
         },
         {
           test: /\.(woff|woff2|ttf|eot|svg|otf)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
-          loader: 'file-loader?name=fonts/[name].[ext]'
+          loader: 'file-loader',
+          options: {
+            name: 'fonts/[name].[ext]'
+          }
         },
-        ifProduction(
-          {
-            test: /\.(css|less)$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
-            exclude: [/node_modules/, /\.module\.(css|less)$/]
-          },
-          {
-            test: /\.(css|less)$/,
-            loader: 'style-loader!css-loader!less-loader',
-            exclude: [/node_modules/, /\.module\.(css|less)$/]
-          }
-        ),
-        ifProduction(
-          {
-            test: /\.module\.(css|less)$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              'css-loader?modules=true&localsConvention=camelCase',
-              'less-loader'
-            ],
-            exclude: /node_modules/
-          },
-          {
-            test: /\.module\.(css|less)$/,
-            loader: 'style-loader!css-loader?modules=true&localsConvention=camelCase!less-loader',
-            exclude: /node_modules/
-          }
-        )
       ])
     },
     plugins: removeEmpty([
