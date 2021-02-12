@@ -1,21 +1,30 @@
-var path = require('path');
+const path = require('path')
+const express = require('express')
+const compression = require('compression')
 
-var express = require('express');
-var app = express();
+const app = express()
+app.disable('x-powered-by')
 
-var compression = require('compression');
+app.use(compression())                                // middleware - compression comes first
+app.use(express.static(path.join(__dirname, 'dist'))) // middlewares - serve static assets
 
-app.use(compression()); // <--- must be first
-
-// serve static asset
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// send all requests to index.html so browserHistory in React Router works
+// routes - send all requests to index.html so browserHistory in React Router works
 app.get('*', function (req, res){
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+  // The following header prevents browsers from caching index.html.
+  // For each deployment index.html will load new resources.
+  // Caching index.html will lead to blank page during deployment
+  // because resources that is no longer available will be loaded.
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    Pragma: 'no-cache',
+    Expires: '0',
+  });
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
 
-var PORT = process.env.PORT || 8080;
+// start server
+const PORT = process.env.PORT || 8080
 app.listen(PORT, function(){
-  console.log('production express server running at http://localhost: ' + PORT);
-});
+  console.log('Production express server running at http://localhost:' + PORT)
+})
+
